@@ -199,11 +199,19 @@
             $query7 = "SELECT * FROM Room WHERE Room_id = '$room_id'";
             $result7 = mysqli_query($conn,$query7);
             $row7 = mysqli_fetch_assoc($result7);
-            $room_no = $row7['Room_No'];
+            if(isset($row7['Room_No'])){
+				$room_no = $row7['Room_No'];
+			} else {
+				$room_no = null; // or some default
+			}
             $query99 = "SELECT * FROM Hostel WHERE Hostel_id = '$HID'";
             $result99 = mysqli_query($conn,$query99);
             $row99 = mysqli_fetch_assoc($result99);
-            $HNM = $row99['Hostel_name'];
+            if($row99 = mysqli_fetch_assoc($result99)){
+				$HNM = $row99['Hostel_name'];
+			} else {
+				$HNM = "Unknown Hostel";
+			}
             if (!$HNM) {
               $HNM='None';
             }

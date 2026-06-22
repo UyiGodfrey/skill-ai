@@ -1,0 +1,44 @@
+[10-Apr-2026 04:57:26 Africa/Lagos] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home/excelcb2/public_html/hostel/includes/config.inc.php on line 2
+[10-Apr-2026 04:57:26 Africa/Lagos] PHP Warning:  Undefined global variable $_SESSION in /home/excelcb2/public_html/hostel/services.php on line 78
+[10-Apr-2026 04:57:26 Africa/Lagos] PHP Warning:  Trying to access array offset on null in /home/excelcb2/public_html/hostel/services.php on line 78
+[10-Apr-2026 04:57:40 Africa/Lagos] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'excelcb2_hostel.Message' doesn't exist in /home/excelcb2/public_html/hostel/message_user.php:106
+Stack trace:
+#0 /home/excelcb2/public_html/hostel/message_user.php(106): mysqli_query(Object(mysqli), 'SELECT * FROM M...')
+#1 {main}
+  thrown in /home/excelcb2/public_html/hostel/message_user.php on line 106
+[10-Apr-2026 04:58:11 Africa/Lagos] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home/excelcb2/public_html/hostel/includes/config.inc.php on line 2
+[10-Apr-2026 04:58:11 Africa/Lagos] PHP Warning:  Undefined global variable $_SESSION in /home/excelcb2/public_html/hostel/services.php on line 78
+[10-Apr-2026 04:58:11 Africa/Lagos] PHP Warning:  Trying to access array offset on null in /home/excelcb2/public_html/hostel/services.php on line 78
+[05-May-2026 16:55:29 Africa/Lagos] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in /home/excelcb2/public_html/hostel/signup.php:25
+Stack trace:
+#0 /home/excelcb2/public_html/hostel/signup.php(25): mysqli_stmt->bind_param('sssssss', 'nil/208', 'jerry12@gmail.c...', 'Jerry', 'Paul', '09033333', 'Computer Scienc...', '2026', '$2y$10$PrC9qziJ...')
+#1 {main}
+  thrown in /home/excelcb2/public_html/hostel/signup.php on line 25
+[11-May-2026 22:55:11 Africa/Lagos] PHP Fatal error:  Uncaught mysqli_sql_exception: Duplicate entry '20221639' for key 'PRIMARY' in /home/excelcb2/public_html/hostel/signup.php:34
+Stack trace:
+#0 /home/excelcb2/public_html/hostel/signup.php(34): mysqli_stmt->execute()
+#1 {main}
+  thrown in /home/excelcb2/public_html/hostel/signup.php on line 34
+[11-May-2026 22:56:08 Africa/Lagos] PHP Fatal error:  Uncaught mysqli_sql_exception: Duplicate entry '20221639' for key 'PRIMARY' in /home/excelcb2/public_html/hostel/signup.php:34
+Stack trace:
+#0 /home/excelcb2/public_html/hostel/signup.php(34): mysqli_stmt->execute()
+#1 {main}
+  thrown in /home/excelcb2/public_html/hostel/signup.php on line 34
+[11-May-2026 22:59:05 Africa/Lagos] PHP Fatal error:  Uncaught mysqli_sql_exception: Duplicate entry '20220731' for key 'PRIMARY' in /home/excelcb2/public_html/hostel/signup.php:34
+Stack trace:
+#0 /home/excelcb2/public_html/hostel/signup.php(34): mysqli_stmt->execute()
+#1 {main}
+  thrown in /home/excelcb2/public_html/hostel/signup.php on line 34
+[28-May-2026 11:13:33 Africa/Lagos] PHP Warning:  mysqli_connect(): php_network_getaddresses: getaddrinfo for mysql failed: Name or service not known in /home/excelcb2/public_html/hostel/includes/config.inc.php on line 8
+[28-May-2026 11:13:33 Africa/Lagos] PHP Fatal error:  Uncaught mysqli_sql_exception: php_network_getaddresses: getaddrinfo for mysql failed: Name or service not known in /home/excelcb2/public_html/hostel/includes/config.inc.php:8
+Stack trace:
+#0 /home/excelcb2/public_html/hostel/includes/config.inc.php(8): mysqli_connect('mysql', 'excelcb2_hostel', Object(SensitiveParameterValue), 'excelcb2_hostel')
+#1 /home/excelcb2/public_html/hostel/index.php(2): require('/home/excelcb2/...')
+#2 {main}
+  thrown in /home/excelcb2/public_html/hostel/includes/config.inc.php on line 8
+[28-May-2026 11:16:56 Africa/Lagos] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/excelcb2/public_html/skill-ai/profile.php on line 92
+[28-May-2026 11:40:45 Africa/Lagos] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/excelcb2/public_html/skill-ai/profile.php on line 92
+[28-May-2026 11:42:18 Africa/Lagos] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/excelcb2/public_html/skill-ai/profile.php on line 92
+[28-May-2026 22:19:43 Africa/Lagos] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/excelcb2/public_html/skill-ai/profile.php on line 92
+[29-May-2026 09:32:47 Africa/Lagos] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/excelcb2/public_html/skill-ai/profile.php on line 92
+[06-Jun-2026 08:55:34 Africa/Lagos] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/excelcb2/public_html/skill-ai/profile.php on line 92

@@ -1,62 +1,46 @@
+<?php
+require 'includes/config.inc.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>HMS</title>
-    <!-- meta tags -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="keywords" content="Art Sign Up Form Responsive Widget, Audio and Video players, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates,
-		Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design"
-    />
-    <!-- /meta tags -->
-    <!-- custom style sheet -->
-    <link href="web/css/style.css" rel="stylesheet" type="text/css" />
-    <!-- /custom style sheet -->
-    <!-- fontawesome css -->
-    <link href="web/css/fontawesome-all.css" rel="stylesheet" />
-    <!-- /fontawesome css -->
-    <!-- google fonts-->
-    <link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
-    <!-- /google fonts-->
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill-gap app - Learner Login</title>
+    <link href="web/css/skillgap.css" rel="stylesheet" type="text/css">
 </head>
+<body class="auth-login">
+    <main class="auth-page" style="min-height:100vh; display:flex; align-items:center; justify-content:center; background:#f5f5f3;">
+        <div class="login-card" style="width:100%; max-width:400px; background:#fff; border:1px solid #e5e5e2; border-radius:12px; padding:2rem; margin:1rem;">
 
+            <h1 style="font-size:1.1rem; font-weight:500; margin:0 0 0.25rem;">Welcome back</h1>
+            <p style="font-size:0.875rem; color:#6b6b68; margin:0 0 1.5rem;">Sign in to your skill profile</p>
 
-<body>
-    <h1>Hostel Room Allocation System</h1>
-    <div class=" w3l-login-form">
-        <h2>Student Login</h2>
-        <form action="includes/login.inc.php" method="POST">
+            <?php if (isset($_GET['error'])): ?>
+                <div class="message error"><?php echo htmlspecialchars($_GET['error']); ?></div>
+            <?php endif; ?>
 
-            <div class=" w3l-form-group">
-                <label>Student Roll No:</label>
-                <div class="group">
-                    <i class="fas fa-user"></i>
-                    <input type="text" class="form-control" name="student_roll_no" placeholder="Roll No" required="required" />
+            <?php if (isset($_GET['success'])): ?>
+                <div class="message"><?php echo htmlspecialchars($_GET['success']); ?></div>
+            <?php endif; ?>
+
+            <form action="includes/login.inc.php" method="POST">
+                <div style="margin-bottom:1rem;">
+                    <label style="display:block; font-size:0.8125rem; color:#6b6b68; margin-bottom:4px;">Email address</label>
+                    <input type="email" name="email" placeholder="you@example.com" required style="width:100%; box-sizing:border-box;">
                 </div>
-            </div>
-            <div class=" w3l-form-group">
-                <label>Password:</label>
-                <div class="group">
-                    <i class="fas fa-unlock"></i>
-                    <input type="password" class="form-control" name="pwd" placeholder="Password" required="required" />
+                <div style="margin-bottom:1.5rem;">
+                    <label style="display:block; font-size:0.8125rem; color:#6b6b68; margin-bottom:4px;">Password</label>
+                    <input type="password" name="pwd" placeholder="Your password" required style="width:100%; box-sizing:border-box;">
                 </div>
-            </div>
-            <!--<div class="forgot">
-                <a href="#">Forgot Password?</a>
-                <p><input type="checkbox">Remember Me</p>
-            </div>-->
-            <button type="submit" name="login-submit">Login</button>
-        </form>
-          <p class=" w3l-register-p">Login as<a href="login-hostel_manager.php" class="register"> Hostel-Manager/Admin</a></p>
-        <p class=" w3l-register-p">Don't have an account?<a href="signup.php" class="register"> Sign up</a></p>
-    </div>
-    <footer>
-        <p class="copyright-agileinfo"> &copy; 2018 DBMS Project. All Rights Reserved | Design by <a href="https://www.linkedin.com/in/bharat-reddy/">Bharat-Prajwal-Rakesh</a></p>
-    </footer>
+                <button type="submit" name="login-submit" class="btn" style="width:100%;">Login</button>
+            </form>
 
+            <div style="border-top:1px solid #e5e5e2; margin-top:1.25rem; padding-top:1rem;">
+                <p class="muted-link">New learner? <a href="signup.php">Create your skill profile</a></p>
+                <p class="muted-link">Platform team? <a href="login-manager.php">Admin login</a></p>
+            </div>
+        </div>
+    </main>
 </body>
-
 </html>

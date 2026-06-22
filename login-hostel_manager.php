@@ -25,7 +25,8 @@
 
 
 <body>
-    <h1>Hostel Room Allocation System</h1>
+    <h1></h1>
+   
     <div class=" w3l-login-form">
         <h2>Hostel-Manager/Admin Login</h2>
         <form action="includes/login-hm.inc.php" method="POST">
@@ -50,11 +51,11 @@
             </div>-->
             <button type="submit" name="login-submit">Login</button>
         </form>
-          <p class=" w3l-register-p">Login as<a href="index.php" class="register"> Student</a></p>
+          <p class=" w3l-register-p" style="color:#000";>Login as<a href="index.php" class="register"> Student</a></p>
       <!--  <p class=" w3l-register-p">Don't have an account?<a href="signup.php" class="register"> Sign up</a></p>-->
     </div>
     <footer>
-        <p class="copyright-agileinfo"> &copy; 2018 DBMS Project. All Rights Reserved | Design by <a href="https://www.linkedin.com/in/bharat-reddy/">Bharat-Prajwal-Rakesh</a></p>
+        <p class="copyright-agileinfo"> &copy; 2026 HMS Project. All Rights Reserved | Design by <a href="#">BOLNAAN BUKAR</a></p>
     </footer>
 
 </body>

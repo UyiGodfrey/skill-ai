@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title> Intrend Interior Category Flat Bootstrap Responsive Website Template | Index : W3layouts</title>
+<title> E-HOSTEL MANAGEMENT SYSTEM</title>
 
 	<!-- Meta tag Keywords -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -52,7 +52,7 @@
 	<div class="container agile-banner_nav">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-			<h1><a class="navbar-brand" href="admin_home.php">NITC <span class="display"></span></a></h1>
+			<h1><a class="navbar-brand" href="admin_home.php">Nile University <span class="display"></span></a></h1>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 			</button>

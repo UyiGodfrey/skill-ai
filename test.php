@@ -1,9 +1,12 @@
 <?php
-  require 'includes/config.inc.php';
-  $hashPwd = password_hash('root', PASSWORD_DEFAULT);
-  $sql = "INSERT INTO Hostel_Manager (Username, Fname, Lname, Mob_no, Hostel_id, Pwd, Isadmin) VALUES ('', 'deepika', 'padukone', '8891735573', 2, '$hashPwd', 0)";
-  $result = mysqli_query($conn, $sql);
-  if(!$result){
-    echo mysqli_error($conn);
-  }
- ?>
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+$conn = mysqli_connect("localhost", "excelcb2_hostel", "EDWOLWN7}QM^ld@&", "excelcb2_hostel");
+
+if (!$conn) {
+    die("Connection Failed: " . mysqli_connect_error());
+}
+
+echo "Connected successfully!";
+?>

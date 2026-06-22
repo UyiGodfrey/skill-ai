@@ -1,8 +1,8 @@
 body {
     margin: 0;
     padding: 0;
-    background: url(../images/cover4.jpg) no-repeat 0px 0px;
-    min-height: 100vh;
+    background: url(../images/nile.jfif) no-repeat 0px 0px;
+    min-height: 80vh;
     background-size: cover;
     font-family: 'Raleway', sans-serif;
 }
@@ -18,7 +18,7 @@ h1 {
 
 h2 {
     margin: 0;
-    color: #fc3955;
+    color: #1D4DA1;
     font-size: 25px;
     font-weight: 400;
     text-align: center;
@@ -34,7 +34,7 @@ p.w3l-register-p {
 }
 
 .w3l-login-form {
-    background: rgba(0, 0, 0, 0.6117647058823529);
+    background:     rgba(255, 255, 255, 0.781);
     max-width: 500px;
     margin: 0 auto;
     padding: 3em;
@@ -49,7 +49,7 @@ p.w3l-register-p {
 }
 
 .group i {
-    color: #fc3955;
+    color: #1D4DA1;
     font-size: 20px;
     padding: 0 10px;
 }
@@ -62,7 +62,7 @@ p.w3l-register-p {
     display: block;
     text-transform: uppercase;
     font-size: 13px;
-    color: #d2d2d2;
+    color: #000;
     letter-spacing: 2px;
     margin-bottom: 10px;
     font-style: italic;
@@ -83,7 +83,7 @@ input[type="password"]:focus {
 }
 
 button {
-    background: #fc3955;
+    background: #1D4DA1;
     color: #ffffff;
     font-size: 13px;
     text-transform: uppercase;

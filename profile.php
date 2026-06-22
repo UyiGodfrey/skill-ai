@@ -1,326 +1,99 @@
 <?php
-		  require 'includes/config.inc.php';
- ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<title>User Profile</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Consultancy Profile Widget Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-		function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- js -->
-<script src="web_profile/js/jquery-2.1.3.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="web_profile/js/sliding.form.js"></script>
-<!-- //js -->
-<link href="web_profile/css/style.css" rel="stylesheet" type="text/css" media="all" />
-<link rel="stylesheet" href="web_profile/css/font-awesome.min.css" />
-<link rel="stylesheet" href="web_profile/css/smoothbox.css" type='text/css' media="all" />
-<link href="//fonts.googleapis.com/css?family=Pathway+Gothic+One" rel="stylesheet">
-<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+require 'includes/config.inc.php';
 
-<script type="application/x-javascript">
-	addEventListener("load", function () {
-		setTimeout(hideURLbar, 0);
-	}, false);
+if (!isset($_SESSION['roll'])) {
+    header("Location: index.php");
+    exit();
+}
 
-	function hideURLbar() {
-		window.scrollTo(0, 1);
-	}
-</script>
-<!--// Meta tag Keywords -->
+require 'includes/user_shell.inc.php';
 
-<link href="web_home/css_home/slider.css" type="text/css" rel="stylesheet" media="all">
+$studentId = $_SESSION['roll'];
 
-<!-- css files -->
-<link rel="stylesheet" href="web_home/css_home/bootstrap.css"> <!-- Bootstrap-Core-CSS -->
-<link rel="stylesheet" href="web_home/css_home/style.css" type="text/css" media="all" /> <!-- Style-CSS -->
-<link rel="stylesheet" href="web_home/css_home/fontawesome-all.css"> <!-- Font-Awesome-Icons-CSS -->
-<!-- //css files -->
+if (isset($_POST['save-profile'])) {
+    $mobile = trim($_POST['mobile_no']);
+    $background = trim($_POST['background']);
+    $experience = trim($_POST['experience_level']);
+    $targetRole = (int) $_POST['target_role_id'];
+    $skills = trim($_POST['current_skills']);
+    $goal = trim($_POST['career_goal']);
+    $portfolio = trim($_POST['portfolio_url']);
 
-<!-- testimonials css -->
-<link rel="stylesheet" href="web_home/css_home/flexslider.css" type="text/css" media="screen" property="" /><!-- flexslider css -->
-<!-- //testimonials css -->
+    $stmt = $conn->prepare(
+        "UPDATE student SET Mob_no = ?, Dept = ?, Year_of_study = ?, target_role_id = ?, current_skills = ?, experience_level = ?, career_goal = ?, portfolio_url = ? WHERE Student_id = ?"
+    );
+    $stmt->bind_param("sssisssss", $mobile, $background, $experience, $targetRole, $skills, $experience, $goal, $portfolio, $studentId);
+    $stmt->execute();
 
-<!-- web-fonts -->
-<link href="//fonts.googleapis.com/css?family=Poiret+One&amp;subset=cyrillic,latin-ext" rel="stylesheet">
-<!-- //web-fonts -->
+    header("Location: profile.php?success=Profile updated");
+    exit();
+}
 
+$stmt = $conn->prepare("SELECT s.*, r.title AS target_role FROM student s LEFT JOIN job_roles r ON s.target_role_id = r.role_id WHERE s.Student_id = ?");
+$stmt->bind_param("s", $studentId);
+$stmt->execute();
+$learner = $stmt->get_result()->fetch_assoc();
+$roles = mysqli_query($conn, "SELECT role_id, title FROM job_roles ORDER BY title ASC");
 
-</head>
-<body>
-	<!-- banner -->
-		<div class="banner" id="home">
-			<div class="cd-radial-slider-wrapper">
+skillgap_user_shell_start('profile', 'SkillBridge AI - Profile', '', $learner);
+?>
+<h1 class="dash-title">Profile</h1>
 
-	<!--Header-->
-	<header>
-		<div class="container agile-banner_nav">
-			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<?php if (isset($_GET['success'])) { ?>
+    <div class="message"><?php echo htmlspecialchars($_GET['success']); ?></div>
+<?php } ?>
 
-				<h1><a class="navbar-brand" href="home.php">NITC <span class="display"></span></a></h1>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-				</button>
+<section class="dash-panel">
+    <form action="profile.php" method="POST" class="form-grid">
+        <div class="form-row">
+            <div>
+                <label>Phone</label>
+                <input type="text" name="mobile_no" value="<?php echo htmlspecialchars($learner['Mob_no']); ?>">
+            </div>
+            <div>
+                <label>Background</label>
+                <input type="text" name="background" value="<?php echo htmlspecialchars($learner['Dept']); ?>">
+            </div>
+        </div>
 
-				<div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active">
-							<a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a>
-						</li>
+        <div class="form-row">
+            <div>
+                <label>Experience level</label>
+                <select name="experience_level">
+                    <?php foreach (['Entry', 'Junior', 'Mid', 'Senior'] as $level) { ?>
+                        <option value="<?php echo $level; ?>" <?php echo $learner['experience_level'] === $level ? 'selected' : ''; ?>><?php echo $level; ?></option>
+                    <?php } ?>
+                </select>
+            </div>
+            <div>
+                <label>Target role</label>
+                <select name="target_role_id">
+                    <?php while ($role = mysqli_fetch_assoc($roles)) { ?>
+                        <option value="<?php echo (int) $role['role_id']; ?>" <?php echo (int) $learner['target_role_id'] === (int) $role['role_id'] ? 'selected' : ''; ?>>
+                            <?php echo htmlspecialchars($role['title']); ?>
+                        </option>
+                    <?php } ?>
+                </select>
+            </div>
+        </div>
 
-						<li class="nav-item">
-							<a class="nav-link" href="services.php">Hostels</a>
-						</li>
+        <div>
+            <label>Current skills</label>
+            <textarea name="current_skills"><?php echo htmlspecialchars($learner['current_skills']); ?></textarea>
+        </div>
 
+        <div>
+            <label>Career goal</label>
+            <textarea name="career_goal"><?php echo htmlspecialchars($learner['career_goal']); ?></textarea>
+        </div>
 
-						<li class="nav-item">
-							<a class="nav-link" href="contact.php">Contact</a>
-						</li>
-						<li class="dropdown nav-item">
-							<!--<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><?php echo $_SESSION['roll']; ?>
-								<b class="caret"></b>
-							</a>
-							<ul class="dropdown-menu agile_short_dropdown">
-								<li>
-									<a href="profile.php">My Profile</a>
-								</li>-->
-								<li>
-									<a href="includes/logout.inc.php" class="nav-link">Logout</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
+        <div>
+            <label>Portfolio URL</label>
+            <input type="url" name="portfolio_url" value="<?php echo htmlspecialchars($learner['portfolio_url']); ?>" placeholder="https://github.com/yourname">
+        </div>
 
-			</nav>
-		</div>
-	</header>
-	<!--Header-->
-<br><br><br><br><br>
-	<div class="main">
-		<div id="navigation" style="display:none;" class="w3_agile">
-			<ul>
-				<li class="selected">
-					<a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i><span>Info</span></a>
-				</li>
-				<li>
-					<a href="#"><i class="fa fa-folder" aria-hidden="true"></i><span>Hostel</span></a>
-				</li>
-				<li>
-					<a href="#"><i class="fa fa-envelope" aria-hidden="true"></i><span>Contact</span></a>
-				</li>
-			</ul>
-		</div>
-		<div id="wrapper" class="w3ls_wrapper w3layouts_wrapper">
-			<div id="steps" style="margin:0 auto;" class="agileits w3_steps">
-				<form id="formElem" name="formElem" action="#" method="post" class="w3_form w3l_form_fancy">
-					<fieldset class="step agileinfo w3ls_fancy_step">
-						<legend>Personal Info</legend>
-						<div class="abt-agile">
-							<div class="abt-agile-left">
-							</div>
-							<div class="abt-agile-right">
-
-								<h3><?php echo $_SESSION['fname']." ".$_SESSION['lname']; ?></h3>
-								<h5>Student</h5>
-								<ul class="address">
-									<li>
-										<ul class="address-text">
-											<li><b>Roll No </b></li>
-											<li>: <?php echo $_SESSION['roll']; ?></li>
-										</ul>
-									</li>
-									<li>
-										<ul class="address-text">
-											<li><b>PHONE </b></li>
-											<li>: <?php echo $_SESSION['mob_no']; ?></li>
-										</ul>
-									</li>
-									<li>
-										<ul class="address-text">
-											<li><b>DEPT </b></li>
-											<li>: <?php echo $_SESSION['department']; ?></li>
-										</ul>
-									</li>
-									<li>
-										<ul class="address-text">
-											<li><b>YEAR OF STUDY </b></li>
-											<li>: <?php echo $_SESSION['year_of_study']; ?></li>
-										</ul>
-									</li>
-								</ul>
-							</div>
-								<div class="clear"></div>
-						</div>
-				</fieldset>
-				<fieldset class="step agileinfo w3ls_fancy_step">
-					<legend>Hostel Info</legend>
-					<div class="abt-agile">
-						<div class="abt-agile-left-hostel">
-						</div>
-						<div class="abt-agile-right">
-
-							<h3><?php echo $_SESSION['fname']." ".$_SESSION['lname']; ?></h3>
-							<h5>Student</h5>
-							<ul class="address">
-								<li>
-									<ul class="address-text">
-										<li><b>HOSTEL </b></li>
-										<?php
-											$hostelId = $_SESSION['hostel_id'];
-											if($hostelId == NULL){
-												$hostelName = 'None';
-											}
-											else {
-												$sql = "SELECT * FROM Hostel WHERE Hostel_id = '$hostelId'";
-												$result = mysqli_query($conn, $sql);
-												if($row = mysqli_fetch_assoc($result)){
-													$hostelName = $row['Hostel_name'];
-												}
-												else {
-													echo "<script type='text/javascript'>alert('Foreign Key Error-hostenName!!')</script>";
-												}
-											}
-										 ?>
-
-
-										<li>: <?php echo $hostelName; ?></li>
-									</ul>
-								</li>
-								<li>
-									<ul class="address-text">
-										<li><b>ROOM NO </b></li>
-										<?php
-											$roomId = $_SESSION['room_id'];
-											if($hostelId == NULL || $roomId == NULL){
-												$roomNo = 'None';
-											}
-											else {
-												$sql = "SELECT * FROM Room WHERE Room_id = '$roomId'";
-												$result = mysqli_query($conn, $sql);
-												if($row = mysqli_fetch_assoc($result)){
-													$roomNo = $row['Room_No'];
-												}
-												else {
-													echo "<script type='text/javascript'>alert('Foreign Key Error-roomNo!!')</script>";
-												}
-											}
-										 ?>
-										<li>: <?php echo $roomNo; ?></li>
-									</ul>
-								</li>
-							</ul>
-						</div>
-							<div class="clear"></div>
-					</div>
-			</fieldset>
-					<!--	<fieldset class="step wthree">
-						<legend>Work</legend>
-						<div class="work-w3agile">
-							<div class="work-w3agile-top">
-								<div class="agileits_w3layouts_work_grid1 w3layouts_work_grid1 hover14 column">
-									<div class="w3_agile_work_effect">
-										<ul>
-											<li>
-												<a href="web_profile/images/c1.jpg" class="sb" title="Quis Nostrud Exercitation Ullamco Laboris Quis Autem Vel Eum Iure Reprehenderit">
-													<figure>
-														<img src="web_profile/images/c1.jpg" alt=" " class="img-responsive" />
-													</figure>
-												</a>
-											</li>
-											<li>
-												<a href="web_profile/images/c2.jpg" class="sb" title="Quis Nostrud Exercitation Ullamco Laboris Quis Autem Vel Eum Iure Reprehenderit">
-													<figure>
-														<img src="web_profile/images/c2.jpg" alt=" " class="img-responsive" />
-													</figure>
-												</a>
-											</li>
-											<li>
-												<a href="web_profile/images/c3.jpg" class="sb" title="Quis Nostrud Exercitation Ullamco Laboris Quis Autem Vel Eum Iure Reprehenderit">
-													<figure>
-														<img src="web_profile/images/c3.jpg" alt=" " class="img-responsive" />
-													</figure>
-												</a>
-											</li>
-											<li>
-												<a href="web_profile/images/c4.jpg" class="sb" title="Quis Nostrud Exercitation Ullamco Laboris Quis Autem Vel Eum Iure Reprehenderit">
-													<figure>
-														<img src="web_profile/images/c4.jpg" alt=" " class="img-responsive" />
-													</figure>
-												</a>
-											</li>
-											<li>
-												<a href="web_profile/images/c5.jpg" class="sb" title="Quis Nostrud Exercitation Ullamco Laboris Quis Autem Vel Eum Iure Reprehenderit">
-													<figure>
-														<img src="web_profile/images/c5.jpg" alt=" " class="img-responsive" />
-													</figure>
-												</a>
-											</li>
-											<li>
-												<a href="web_profile/images/c6.jpg" class="sb" title="Quis Nostrud Exercitation Ullamco Laboris Quis Autem Vel Eum Iure Reprehenderit">
-													<figure>
-														<img src="web_profile/images/c6.jpg" alt=" " class="img-responsive" />
-													</figure>
-												</a>
-											</li>
-												<div class="clear"></div>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-					</fieldset>-->
-					<fieldset class="step agileinfo w3ls_fancy_step">
-						<legend>Hostel Manager Info</legend>
-						<div class="abt-agile">
-							<div class="abt-agile-left">
-							</div>
-							<div class="abt-agile-right">
-								<?php
-									$Hid = $_SESSION['hostel_id'];
-									$sql1 = "SELECT * FROM Hostel_Manager WHERE Hostel_id = '$Hid'";
-									$result1 = mysqli_query($conn, $sql1);
-									if($row1 = mysqli_fetch_assoc($result1)){
-										$hmfname = $row1['Fname'];
-										$hmlname = $row1['Lname'];
-										$hmMob  = $row1['Mob_no'];
-										$hmemail = $row1['Email'];
-									}
-									else {
-										$hmfname = 'none';
-										$hmlname = 'none';
-										$hmMob  = 'none';
-										$hmemail = 'none';
-									}
-								 ?>
-								<h3><?php echo $hmfname." ".$hmlname; ?></h3>
-								<h5>Admin</h5>
-								<ul class="address">
-									<li>
-										<ul class="address-text">
-											<li><b>PHONE </b></li>
-											<li>: <?php echo $hmMob; ?></li>
-										</ul>
-									</li>
-									<li>
-										<ul class="address-text">
-											<li><b>Email </b></li>
-											<li>: <?php echo $hmemail; ?></li>
-										</ul>
-									</li>
-								</ul>
-							</div>
-								<div class="clear"></div>
-						</div>
-				</fieldset>
-				</form>
-			</div>
-		</div>
-
-	</div>
-	<script type="text/javascript" src="web_profile/js/smoothbox.jquery2.js"></script>
-</body>
-</html>
+        <button type="submit" name="save-profile" class="btn">Save profile</button>
+    </form>
+</section>
+<?php
+skillgap_user_shell_end('', $learner);

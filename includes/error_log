@@ -1,0 +1,106 @@
+[01-Apr-2026 14:24:57 Africa/Lagos] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'excelcb2_hostel.Student' doesn't exist in /home/excelcb2/public_html/hostel/includes/login.inc.php:16
+Stack trace:
+#0 /home/excelcb2/public_html/hostel/includes/login.inc.php(16): mysqli_query(Object(mysqli), 'SELECT *FROM St...')
+#1 {main}
+  thrown in /home/excelcb2/public_html/hostel/includes/login.inc.php on line 16
+[01-Apr-2026 14:26:50 Africa/Lagos] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'excelcb2_hostel.Student' doesn't exist in /home/excelcb2/public_html/hostel/includes/login.inc.php:16
+Stack trace:
+#0 /home/excelcb2/public_html/hostel/includes/login.inc.php(16): mysqli_query(Object(mysqli), 'SELECT *FROM St...')
+#1 {main}
+  thrown in /home/excelcb2/public_html/hostel/includes/login.inc.php on line 16
+[06-Apr-2026 21:09:13 Africa/Lagos] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'excelcb2_hostel.Hostel_Manager' doesn't exist in /home/excelcb2/public_html/hostel/includes/login-hm.inc.php:16
+Stack trace:
+#0 /home/excelcb2/public_html/hostel/includes/login-hm.inc.php(16): mysqli_query(Object(mysqli), 'SELECT *FROM Ho...')
+#1 {main}
+  thrown in /home/excelcb2/public_html/hostel/includes/login-hm.inc.php on line 16
+[06-Apr-2026 21:31:53 Africa/Lagos] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'excelcb2_hostel.Hostel_Manager' doesn't exist in /home/excelcb2/public_html/hostel/includes/login-hm.inc.php:16
+Stack trace:
+#0 /home/excelcb2/public_html/hostel/includes/login-hm.inc.php(16): mysqli_query(Object(mysqli), 'SELECT *FROM Ho...')
+#1 {main}
+  thrown in /home/excelcb2/public_html/hostel/includes/login-hm.inc.php on line 16
+[06-Apr-2026 21:32:13 Africa/Lagos] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'excelcb2_hostel.Hostel_Manager' doesn't exist in /home/excelcb2/public_html/hostel/includes/login-hm.inc.php:16
+Stack trace:
+#0 /home/excelcb2/public_html/hostel/includes/login-hm.inc.php(16): mysqli_query(Object(mysqli), 'SELECT *FROM Ho...')
+#1 {main}
+  thrown in /home/excelcb2/public_html/hostel/includes/login-hm.inc.php on line 16
+[06-Apr-2026 21:41:27 Africa/Lagos] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'excelcb2_hostel.Hostel_Manager' doesn't exist in /home/excelcb2/public_html/hostel/includes/login-hm.inc.php:16
+Stack trace:
+#0 /home/excelcb2/public_html/hostel/includes/login-hm.inc.php(16): mysqli_query(Object(mysqli), 'SELECT *FROM Ho...')
+#1 {main}
+  thrown in /home/excelcb2/public_html/hostel/includes/login-hm.inc.php on line 16
+[06-Apr-2026 21:41:45 Africa/Lagos] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'excelcb2_hostel.Hostel_Manager' doesn't exist in /home/excelcb2/public_html/hostel/includes/login-hm.inc.php:16
+Stack trace:
+#0 /home/excelcb2/public_html/hostel/includes/login-hm.inc.php(16): mysqli_query(Object(mysqli), 'SELECT *FROM Ho...')
+#1 {main}
+  thrown in /home/excelcb2/public_html/hostel/includes/login-hm.inc.php on line 16
+[06-Apr-2026 21:44:39 Africa/Lagos] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from /home/excelcb2/public_html/hostel/includes/login-hm.inc.php on line 9) in /home/excelcb2/public_html/hostel/includes/config.inc.php on line 2
+[06-Apr-2026 21:44:39 Africa/Lagos] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'excelcb2_hostel.Hostel_Manager' doesn't exist in /home/excelcb2/public_html/hostel/includes/login-hm.inc.php:22
+Stack trace:
+#0 /home/excelcb2/public_html/hostel/includes/login-hm.inc.php(22): mysqli_query(Object(mysqli), 'SELECT *FROM Ho...')
+#1 {main}
+  thrown in /home/excelcb2/public_html/hostel/includes/login-hm.inc.php on line 22
+[06-Apr-2026 21:46:23 Africa/Lagos] PHP Warning:  Undefined array key "Email" in /home/excelcb2/public_html/hostel/includes/login-hm.inc.php on line 38
+[06-Apr-2026 21:46:23 Africa/Lagos] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/excelcb2/public_html/hostel/includes/login-hm.inc.php:38) in /home/excelcb2/public_html/hostel/includes/login-hm.inc.php on line 54
+[06-Apr-2026 21:48:29 Africa/Lagos] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/excelcb2/public_html/hostel/includes/login-hm.inc.php:44) in /home/excelcb2/public_html/hostel/includes/login-hm.inc.php on line 54
+[06-Apr-2026 21:51:50 Africa/Lagos] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/excelcb2/public_html/hostel/includes/login-hm.inc.php:44) in /home/excelcb2/public_html/hostel/includes/login-hm.inc.php on line 54
+[10-Apr-2026 04:51:33 Africa/Lagos] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'excelcb2_hostel.Student' doesn't exist in /home/excelcb2/public_html/hostel/includes/login.inc.php:16
+Stack trace:
+#0 /home/excelcb2/public_html/hostel/includes/login.inc.php(16): mysqli_query(Object(mysqli), 'SELECT *FROM St...')
+#1 {main}
+  thrown in /home/excelcb2/public_html/hostel/includes/login.inc.php on line 16
+[10-Apr-2026 04:52:23 Africa/Lagos] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'excelcb2_hostel.Student' doesn't exist in /home/excelcb2/public_html/hostel/includes/login.inc.php:17
+Stack trace:
+#0 /home/excelcb2/public_html/hostel/includes/login.inc.php(17): mysqli_query(Object(mysqli), 'SELECT *FROM St...')
+#1 {main}
+  thrown in /home/excelcb2/public_html/hostel/includes/login.inc.php on line 17
+[10-Apr-2026 04:55:58 Africa/Lagos] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/excelcb2/public_html/hostel/includes/login.inc.php:36) in /home/excelcb2/public_html/hostel/includes/login.inc.php on line 42
+[15-Apr-2026 19:00:41 Africa/Lagos] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'excelcb2_hostel.Student' doesn't exist in /home/excelcb2/public_html/hostel/includes/signup.inc.php:29
+Stack trace:
+#0 /home/excelcb2/public_html/hostel/includes/signup.inc.php(29): mysqli_stmt_prepare(Object(mysqli_stmt), 'SELECT Student_...')
+#1 {main}
+  thrown in /home/excelcb2/public_html/hostel/includes/signup.inc.php on line 29
+[15-Apr-2026 19:09:42 Africa/Lagos] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'excelcb2_hostel.Student' doesn't exist in /home/excelcb2/public_html/hostel/includes/signup.inc.php:29
+Stack trace:
+#0 /home/excelcb2/public_html/hostel/includes/signup.inc.php(29): mysqli_stmt_prepare(Object(mysqli_stmt), 'SELECT Student_...')
+#1 {main}
+  thrown in /home/excelcb2/public_html/hostel/includes/signup.inc.php on line 29
+[15-Apr-2026 19:09:53 Africa/Lagos] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'excelcb2_hostel.Student' doesn't exist in /home/excelcb2/public_html/hostel/includes/signup.inc.php:29
+Stack trace:
+#0 /home/excelcb2/public_html/hostel/includes/signup.inc.php(29): mysqli_stmt_prepare(Object(mysqli_stmt), 'SELECT Student_...')
+#1 {main}
+  thrown in /home/excelcb2/public_html/hostel/includes/signup.inc.php on line 29
+[15-Apr-2026 19:10:01 Africa/Lagos] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'excelcb2_hostel.Student' doesn't exist in /home/excelcb2/public_html/hostel/includes/signup.inc.php:29
+Stack trace:
+#0 /home/excelcb2/public_html/hostel/includes/signup.inc.php(29): mysqli_stmt_prepare(Object(mysqli_stmt), 'SELECT Student_...')
+#1 {main}
+  thrown in /home/excelcb2/public_html/hostel/includes/signup.inc.php on line 29
+[15-Apr-2026 19:11:10 Africa/Lagos] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'excelcb2_hostel.Student' doesn't exist in /home/excelcb2/public_html/hostel/includes/signup.inc.php:29
+Stack trace:
+#0 /home/excelcb2/public_html/hostel/includes/signup.inc.php(29): mysqli_stmt_prepare(Object(mysqli_stmt), 'SELECT Student_...')
+#1 {main}
+  thrown in /home/excelcb2/public_html/hostel/includes/signup.inc.php on line 29
+[15-Apr-2026 19:11:33 Africa/Lagos] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'excelcb2_hostel.Student' doesn't exist in /home/excelcb2/public_html/hostel/includes/signup.inc.php:29
+Stack trace:
+#0 /home/excelcb2/public_html/hostel/includes/signup.inc.php(29): mysqli_stmt_prepare(Object(mysqli_stmt), 'SELECT Student_...')
+#1 {main}
+  thrown in /home/excelcb2/public_html/hostel/includes/signup.inc.php on line 29
+[15-Apr-2026 19:11:59 Africa/Lagos] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'excelcb2_hostel.Student' doesn't exist in /home/excelcb2/public_html/hostel/includes/signup.inc.php:29
+Stack trace:
+#0 /home/excelcb2/public_html/hostel/includes/signup.inc.php(29): mysqli_stmt_prepare(Object(mysqli_stmt), 'SELECT Student_...')
+#1 {main}
+  thrown in /home/excelcb2/public_html/hostel/includes/signup.inc.php on line 29
+[20-Apr-2026 05:10:08 Africa/Lagos] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'excelcb2_hostel.Student' doesn't exist in /home/excelcb2/public_html/hostel/includes/signup.inc.php:29
+Stack trace:
+#0 /home/excelcb2/public_html/hostel/includes/signup.inc.php(29): mysqli_stmt_prepare(Object(mysqli_stmt), 'SELECT Student_...')
+#1 {main}
+  thrown in /home/excelcb2/public_html/hostel/includes/signup.inc.php on line 29
+[20-Apr-2026 05:12:41 Africa/Lagos] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'excelcb2_hostel.Student' doesn't exist in /home/excelcb2/public_html/hostel/includes/signup.inc.php:29
+Stack trace:
+#0 /home/excelcb2/public_html/hostel/includes/signup.inc.php(29): mysqli_stmt_prepare(Object(mysqli_stmt), 'SELECT Student_...')
+#1 {main}
+  thrown in /home/excelcb2/public_html/hostel/includes/signup.inc.php on line 29
+[20-Apr-2026 05:15:58 Africa/Lagos] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'excelcb2_hostel.Student' doesn't exist in /home/excelcb2/public_html/hostel/includes/signup.inc.php:29
+Stack trace:
+#0 /home/excelcb2/public_html/hostel/includes/signup.inc.php(29): mysqli_stmt_prepare(Object(mysqli_stmt), 'SELECT Student_...')
+#1 {main}
+  thrown in /home/excelcb2/public_html/hostel/includes/signup.inc.php on line 29
